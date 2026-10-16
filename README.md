@@ -38,6 +38,34 @@ graph TD
 
 ---
 
+## 📸 Real Application Screenshots (বাস্তব স্ক্রিনশট)
+
+### 💻 1. Standalone Web Admin Panel (`/admin_panel`)
+*হাসপাতাল প্রশাসন ও অভ্যর্থনা ডেস্কে ব্যবহৃত ডেডিকেটেড ওয়েব ম্যানেজমেন্ট পোর্টাল:*
+
+| 📊 অ্যাডমিন ড্যাশবোর্ড (Operational Metrics & KPIs) |
+|:---:|
+| ![Hospital Admin Dashboard](docs/screenshots/admin_dashboard.png) |
+
+| 🏆 সেরা ডাক্তার ব্যবস্থাপনা ও অগ্রাধিকার নির্ধারণ (Top Doctors Manager) |
+|:---:|
+| ![Top Doctors Manager](docs/screenshots/admin_top_doctors.png) |
+
+| 🔐 অ্যাডমিন সিকিউরিটি লগইন গেট (RBAC Authentication) |
+|:---:|
+| ![Admin Login](docs/screenshots/admin_login.png) |
+
+---
+
+### 📱 2. Patient Mobile Application (`/`)
+*রোগীদের জন্য আধুনিক, সহজ এবং সম্পূর্ণ বাংলা-বান্ধব স্বাস্থ্যসেবা ও অ্যাপয়েন্টমেন্ট বুকিং অ্যাপ:*
+
+| 🏠 হোম ও বিশেষজ্ঞ বিভাগসমূহ | 🩺 ডাক্তার ডিরেক্টরি ও ফিল্টার | 📅 চেম্বার শিডিউল ও বুকিং |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/app_home_top.png" width="300" alt="Patient App Home" /> | <img src="docs/screenshots/app_doctor_directory.png" width="300" alt="Doctor Directory" /> | <img src="docs/screenshots/app_doctor_profile.png" width="300" alt="Doctor Profile & Booking" /> |
+
+---
+
 ## ✨ Key Modules & Capabilities
 
 ### 📱 A. Patient Application (`/`)

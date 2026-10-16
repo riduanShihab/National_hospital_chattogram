@@ -5,6 +5,24 @@
 
 ---
 
+## 📸 Real Application Screenshots
+
+### 📊 Hospital Admin Dashboard (ড্যাশবোর্ড ও লাইভ পরিসংখ্যান)
+![Hospital Admin Dashboard](../docs/screenshots/admin_dashboard.png)
+
+### 🏆 Top Doctors & Hero Specialists Manager (সেরা ডাক্তার ব্যবস্থাপনা)
+![Top Doctors Manager](../docs/screenshots/admin_top_doctors.png)
+
+### 🔐 Admin Authentication Gate (নিরাপদ অ্যাডমিন লগইন)
+![Admin Login Screen](../docs/screenshots/admin_login.png)
+
+### 📱 Patient Mobile App Ecosystem
+| 🏠 হোম ও বিশেষজ্ঞ বিভাগসমূহ | 🩺 বিশেষজ্ঞ ডাক্তার ডিরেক্টরি | 📅 চেম্বার শিডিউল ও বুকিং |
+|:---:|:---:|:---:|
+| <img src="../docs/screenshots/app_home_top.png" width="280" alt="Patient App Home" /> | <img src="../docs/screenshots/app_doctor_directory.png" width="280" alt="Doctor Directory" /> | <img src="../docs/screenshots/app_doctor_profile.png" width="280" alt="Doctor Profile & Booking" /> |
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
