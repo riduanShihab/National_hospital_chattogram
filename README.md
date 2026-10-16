@@ -360,5 +360,29 @@ flutter test
 
 ---
 
+## 🔒 Security Notes
+- **CSRF Protection**: CSRF protection and origin validation across all web forms.
+- **Server-Side Validation**: Server-side validation and constraint enforcement for every form submission.
+- **SQL Injection Prevention**: Parameterized queries and prepared statements (ORM & PostgreSQL RPCs) preventing SQL injection attacks.
+- **Password Hashing**: Strong cryptographic hashing for admin and user authentication; plain-text passwords are never stored.
+- **Environment Isolation**: `.env` and sensitive API keys are strictly excluded and never committed to the repository.
+
+---
+
+## 🚀 Possible Improvements
+- **Online Payment**: Integration of MFS gateways (bKash, Nagad, Rocket) and cards for digital fee collection.
+- **Patient Accounts and Appointment History**: Detailed health records, digital prescription tracking, and consultation archives.
+- **SMS or Email Notifications**: Automated booking confirmations, serial reminders, and schedule updates.
+- **Doctor Schedules and Time Slots**: Live dynamic chamber slot allocation with real-time queue delay notifications.
+
+---
+
+## 👨‍💻 Author
+**Mohammad Ashfak**  
+- **ID**: `0222220005101179`  
+- **Department**: Dept. of Computer Science and Engineering, Premier University Chittagong.
+
+---
+
 ## 📄 License
 This project is developed for National Hospital Chattogram. All rights reserved.
