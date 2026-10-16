@@ -95,7 +95,7 @@ graph TD
 
 ## 🗄️ Database Architecture (Supabase / PostgreSQL)
 
-The backend schema resides in [`supabase/`](file:///e:/stitch_national_hospital_chattogram/national_hospital_chattogram/supabase/):
+The backend schema resides in [`supabase/`](supabase/):
 
 ```mermaid
 erDiagram
@@ -186,9 +186,10 @@ erDiagram
 
 ### Database Migration Sequence:
 Run the scripts in Supabase **SQL Editor** in this order:
-1. [`supabase/schema.sql`](file:///e:/stitch_national_hospital_chattogram/national_hospital_chattogram/supabase/schema.sql): Core tables, triggers, RLS, and phone-first auth RPCs.
-2. [`supabase/seed_scraped_doctors.sql`](file:///e:/stitch_national_hospital_chattogram/national_hospital_chattogram/supabase/seed_scraped_doctors.sql): Seeds 100+ verified hospital doctors, clinical specialties, and weekly chamber visiting schedules.
-3. [`supabase/featured_doctors_and_admin.sql`](file:///e:/stitch_national_hospital_chattogram/national_hospital_chattogram/supabase/featured_doctors_and_admin.sql): Provisions `user_roles`, `is_admin()`, `featured_doctors`, atomic `reorder_featured_doctors()` RPC, `admin_audit_logs`, and admin RLS security policies.
+1. [`supabase/schema.sql`](supabase/schema.sql): Core tables, triggers, RLS, and phone-first auth RPCs.
+2. [`supabase/update_phone_auth.sql`](supabase/update_phone_auth.sql): Extended phone-first auth and auto-confirm RPC functions.
+3. [`supabase/seed_scraped_doctors.sql`](supabase/seed_scraped_doctors.sql): Seeds 100+ verified hospital doctors, clinical specialties, and weekly chamber visiting schedules.
+4. [`supabase/featured_doctors_and_admin.sql`](supabase/featured_doctors_and_admin.sql): Provisions `user_roles`, `is_admin()`, `featured_doctors`, atomic `reorder_featured_doctors()` RPC, `admin_audit_logs`, and admin RLS security policies.
 
 ---
 
@@ -238,16 +239,12 @@ national_hospital_chattogram/
 │   │   │   └── supabase_config.dart       # Supabase URL & anonymous publishable keys
 │   │   ├── routes/
 │   │   │   └── app_routes.dart            # Patient routes (/splash, /login, /home, /booking...)
-│   │   ├── theme/
-│   │   │   └── app_theme.dart             # Patient Material 3 medical theme tokens
 │   │   └── utils/
 │   │       ├── bangla_number.dart         # Bengali numeral converters (০, ১, ২, ৩...)
 │   │       └── validators.dart            # Phone, optional email & password validators
 │   │
 │   ├── models/
-│   │   ├── appointment_model.dart         # Appointment booking model
-│   │   ├── doctor_model.dart              # Doctor, chamber schedule & specialty models
-│   │   └── hospital_models.dart           # Domain barrel export + FeaturedDoctor model
+│   │   └── hospital_models.dart           # Complete domain models (Doctor, Department, Appointments, FeaturedDoctor)
 │   │
 │   ├── screens/
 │   │   ├── splash_screen.dart             # 4-second animated brand launch screen
