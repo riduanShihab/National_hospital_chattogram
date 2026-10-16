@@ -1,0 +1,35 @@
+{
+    "name": "National Hospital",
+    "short_name": "National Hospital",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#006096",
+    "theme_color": "#006096",
+    "description": "National Hospital - Official Patient Portal & Doctor Appointment Application",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
