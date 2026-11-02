@@ -1,0 +1,69 @@
+\contentsline {chapter}{Certificate of Approval}{i}{chapter*.1}%
+\contentsline {chapter}{Declaration}{ii}{chapter*.2}%
+\contentsline {chapter}{Executive Abstract}{iii}{chapter*.3}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Background and Purpose}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Internship Objectives}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Scope and Method of the Report}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Structure of the Report}{2}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Company Profile}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Overview}{4}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Mission and Positioning}{4}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Products and Services}{5}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Clients and Track Record}{5}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Stated Expertise}{5}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Assigned Client Project: National Hospital Chattogram}{6}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Organizational Structure}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Information Available}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Functional Areas}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Reporting Line During the Internship}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Working Practices}{8}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Technologies Used}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Technology Landscape of the Company}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Technology Stack Matrix of the Assigned Project}{10}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Flutter \& Dart Ecosystem}{11}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Supabase \& PostgreSQL 15+}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Bengali Typography \& Localization}{12}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Internship Activities}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Sprint Schedule \& Timeline}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sprint-by-Sprint Execution}{13}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Sprint 1: System Requirements \& Relational Modeling}{13}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Sprint 2: Data Extraction, Normalization \& Seeding}{13}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Sprint 3: Patient App Core Interface}{14}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Sprint 4: Scheduling Engine \& Concurrency Control}{14}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Sprint 5: Standalone Web Admin Panel}{14}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}Sprint 6: Quality Assurance \& Verification}{14}{subsection.5.2.6}%
+\contentsline {chapter}{\numberline {6}Technical Learning}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Cross-Platform Development with Flutter}{15}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Advanced Database Design \& PostgreSQL RPCs}{15}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Security Architecture \& Row Level Security (RLS)}{16}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Decoupled Monorepo Architecture}{16}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Security Hardening \& Production Best Practices}{17}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Problems Observed}{18}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Problem 1: Paper Serial Books \& Hallway Crowding}{18}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Problem 2: Volatile Doctor Visiting Schedules}{18}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Problem 3: Concurrency \& Double-Booking Discrepancies}{18}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Problem 4: Email Authentication Drop-Offs}{18}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Problem 5: Security Deficits in Front-End Roles}{19}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Proposed Solutions}{20}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Detailed Architectural Implementations}{20}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Phone-First Pre-Confirmed Authentication}{21}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}Atomic Top Doctors Reordering}{22}{subsection.8.1.2}%
+\contentsline {chapter}{\numberline {9}Reflection on Professional Skills}{23}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Software Engineering Discipline}{23}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Project Management \& Communication}{23}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Adaptability Under Real-World Constraints}{23}{section.9.3}%
+\contentsline {chapter}{\numberline {10}Conclusion}{25}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Summary of Achievements}{25}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Future Roadmap \& Recommendations}{25}{section.10.2}%
+\contentsline {chapter}{References}{27}{chapter*.14}%
+\contentsline {chapter}{\numberline {A}Database Schema DDL Specification}{28}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Application Visual Showcase}{30}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Standalone Web Admin Panel Interface}{30}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Patient Mobile Application Interface}{33}{section.B.2}%
+\contentsline {chapter}{\numberline {C}Static Code Analysis and Automated Test Logs}{35}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Verification Summary Matrix}{35}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Patient App Static Analysis Log}{35}{section.C.2}%
+\contentsline {section}{\numberline {C.3}Admin Panel Static Analysis Log}{35}{section.C.3}%
+\contentsline {section}{\numberline {C.4}Patient App Automated Widget Test Execution Log}{36}{section.C.4}%
+\contentsline {section}{\numberline {C.5}Admin Panel Automated Widget Test Execution Log}{36}{section.C.5}%
