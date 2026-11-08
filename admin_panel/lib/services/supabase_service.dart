@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../core/utils/validators.dart';
 import '../models/hospital_models.dart';
 
 class SupabaseService {
@@ -110,8 +111,9 @@ class SupabaseService {
 
     // 1. Try resolving via RPC helper (supports phone lookup and custom profile email lookup)
     try {
+      final cleanPhone = Validators.normalizePhone(trimmed);
       final resolved = await client.rpc('get_auth_email_for_login', params: {
-        'p_identifier': trimmed,
+        'p_identifier': cleanPhone.isNotEmpty ? cleanPhone : trimmed,
       });
       if (resolved != null && resolved.toString().isNotEmpty) {
         targetEmail = resolved.toString();
@@ -125,7 +127,7 @@ class SupabaseService {
       if (trimmed.contains('@')) {
         targetEmail = trimmed;
       } else {
-        final cleanPhone = trimmed.replaceAll(RegExp(r'[^0-9]'), '');
+        final cleanPhone = Validators.normalizePhone(trimmed);
         targetEmail = '$cleanPhone@patient.nationalhospital.com';
       }
     }
@@ -138,7 +140,7 @@ class SupabaseService {
     } catch (e) {
       // Legacy fallback: check if user was created with old @nationalhospital.local domain
       if (targetEmail.endsWith('@patient.nationalhospital.com')) {
-        final cleanPhone = trimmed.replaceAll(RegExp(r'[^0-9]'), '');
+        final cleanPhone = Validators.normalizePhone(trimmed);
         try {
           return await client.auth.signInWithPassword(
             email: '$cleanPhone@nationalhospital.local',

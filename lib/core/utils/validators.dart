@@ -1,12 +1,24 @@
+import 'bangla_number.dart';
+
 class Validators {
   Validators._();
+
+  /// Normalizes Bangladeshi phone numbers (converts Bangla digits, removes +88, non-digits)
+  static String normalizePhone(String input) {
+    final enDigits = BanglaNumber.toEnglish(input.trim());
+    var clean = enDigits.replaceAll(RegExp(r'[^0-9]'), '');
+    if (clean.startsWith('8801') && clean.length == 13) {
+      clean = clean.substring(2);
+    }
+    return clean;
+  }
 
   /// Validates a Bangladeshi mobile number (11 digits starting with 01)
   static String? validatePhone(String? value) {
     if (value == null || value.trim().isEmpty) {
       return 'মোবাইল নম্বর লিখুন';
     }
-    final clean = value.replaceAll(RegExp(r'[^0-9]'), '');
+    final clean = normalizePhone(value);
     if (clean.length != 11 || !clean.startsWith('01')) {
       return 'সঠিক ১১ ডিজিটের মোবাইল নম্বর দিন (যেমন: 01712345678)';
     }
@@ -57,4 +69,3 @@ class Validators {
     return validatePhone(trimmed);
   }
 }
-
