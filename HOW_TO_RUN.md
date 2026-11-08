@@ -22,34 +22,87 @@ The Standalone Admin Panel (`/admin_panel`) enforces **Role-Based Access Control
 
 * **Admin Portal URL**: `http://localhost:8080` (or the local port assigned by Flutter Web)
 * **Admin Email**: `admin@nationalhospital.com`
-* **Admin Password**: `admin123456` *(or your configured staff password, min 6 characters)*
-* **Alternative Phone Login**: `01712345678` *(with password `admin123456`)*
+* **Admin Password**: `<YOUR_CONFIGURED_ADMIN_PASSWORD>` *(min 6 characters, set in Supabase)*
+* **Alternative Phone Login**: Your registered phone number *(with your account password)*
 
 ---
 
-### 🛡️ First-Time Bootstrap & Role Assignment
+### 🛡️ Creating or Resetting the Admin Account in Supabase
 
-If you are connecting to a new database or need to grant admin rights to an existing user:
+Because Supabase handles authentication in its own `auth.users` schema, the admin user must exist in your Supabase project with an encrypted password.
 
-#### Option A: Automatic Bootstrapping
-The application includes a built-in bootstrap fallback (`AdminService.isCurrentUserAdmin()`): if the `public.user_roles` table is empty, the **first authenticated user** who logs into the admin panel is automatically granted the `super_admin` role.
+To create or reset the admin account, choose either method below:
 
-#### Option B: SQL Grant (Supabase SQL Editor)
-Run the following SQL script inside your **Supabase Dashboard > SQL Editor** to instantly assign an admin role to any account:
+#### Option 1: Run SQL in Supabase Dashboard (Recommended - 1 Click)
+Open your **Supabase Dashboard > SQL Editor**, copy and paste the script from [`supabase/create_admin_user.sql`](supabase/create_admin_user.sql) (or run the snippet below with your password), and click **RUN**:
 
 ```sql
--- 1. Ensure the user exists in auth.users, then assign admin role:
-insert into public.user_roles (user_id, role)
-select id, 'super_admin'
-from auth.users
-where email = 'admin@nationalhospital.com'
-on conflict (user_id, role) do nothing;
+create extension if not exists "pgcrypto";
 
--- 2. Verify admin status:
-select u.email, r.role, r.created_at
-from public.user_roles r
-join auth.users u on u.id = r.user_id;
+do $$
+declare
+  v_user_id uuid;
+  v_email text := 'admin@nationalhospital.com';
+  v_password text := '<YOUR_DESIRED_ADMIN_PASSWORD>'; -- Choose a secure password (min 6 chars)
+  v_encrypted_pw text := crypt(v_password, gen_salt('bf'));
+begin
+  -- 1. Check or create in auth.users
+  select id into v_user_id from auth.users where email = v_email;
+
+  if v_user_id is not null then
+    update auth.users
+       set encrypted_password = v_encrypted_pw,
+           email_confirmed_at = coalesce(email_confirmed_at, now()),
+           updated_at = now()
+     where id = v_user_id;
+  else
+    v_user_id := gen_random_uuid();
+    insert into auth.users (
+      instance_id, id, aud, role, email, encrypted_password, email_confirmed_at,
+      raw_app_meta_data, raw_user_meta_data, created_at, updated_at
+    ) values (
+      '00000000-0000-0000-0000-000000000000', v_user_id, 'authenticated', 'authenticated',
+      v_email, v_encrypted_pw, now(),
+      jsonb_build_object('provider', 'email', 'providers', array['email']),
+      jsonb_build_object('full_name', 'Hospital Admin'), now(), now()
+    );
+  end if;
+
+  -- 2. Ensure profile exists in public.profiles
+  insert into public.profiles (id, full_name, phone, email)
+  values (v_user_id, 'Hospital Admin', '01700000000', v_email)
+  on conflict (id) do update set email = v_email;
+
+  -- 3. Grant super_admin & admin permissions
+  insert into public.user_roles (user_id, role)
+  values (v_user_id, 'super_admin'), (v_user_id, 'admin')
+  on conflict (user_id, role) do nothing;
+end $$;
 ```
+
+#### Option 2: Create via Supabase Dashboard UI
+1. Go to your **Supabase Dashboard** > **Authentication** > **Users**.
+2. Click **Add User** > **Create User**.
+3. **Email**: `admin@nationalhospital.com`
+4. **Password**: `<YOUR_DESIRED_ADMIN_PASSWORD>`
+5. Turn on **"Auto Confirm User?"** (Checked).
+6. Click **Create User**.
+7. In the **SQL Editor**, grant admin permissions:
+   ```sql
+   insert into public.user_roles (user_id, role)
+   select id, 'super_admin' from auth.users where email = 'admin@nationalhospital.com'
+   on conflict (user_id, role) do nothing;
+   ```
+
+#### Option 3: Use an Existing Registered Phone Account
+If you already registered an account in the Patient App (e.g., with mobile `01712345678` and your password):
+1. In Supabase **SQL Editor**, run:
+   ```sql
+   insert into public.user_roles (user_id, role)
+   select id, 'super_admin' from auth.users
+   on conflict (user_id, role) do nothing;
+   ```
+2. Now log in to the admin panel using that mobile number and password!
 
 ---
 
@@ -129,7 +182,7 @@ flutter run -d chrome
 1. When Chrome opens, you will see the **National Hospital Admin Portal Login Gate**.
 2. Enter the admin credentials:
    - **ইমেইল বা মোবাইল**: `admin@nationalhospital.com`
-   - **পাসওয়ার্ড**: `admin123456`
+   - **পাসওয়ার্ড**: `<YOUR_CONFIGURED_ADMIN_PASSWORD>`
 3. Click **"অ্যাডমিন লগইন"**.
 4. You will be redirected to the **Admin Dashboard** (`/admin/dashboard`), featuring:
    - 📊 Operational KPI Cards (Total Doctors, Active Chambers, Featured Specialists, Appointments)
